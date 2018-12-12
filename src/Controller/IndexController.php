@@ -19,7 +19,7 @@ class IndexController extends AbstractActionController
     public function indexAction()
     {
         /** @var string $permalink */
-        $permalink = $this->params()->fromRoute('permalink'); die();
+        $permalink = $this->params()->fromRoute('permalink');
         return parent::indexAction();
     }
 
