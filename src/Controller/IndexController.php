@@ -6,6 +6,7 @@
 namespace MSBios\Content\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
 
 /**
  * Class IndexController
@@ -14,13 +15,12 @@ use Zend\Mvc\Controller\AbstractActionController;
 class IndexController extends AbstractActionController
 {
     /**
-     * @return \Zend\View\Model\ViewModel
+     * @return ViewModel
      */
     public function indexAction()
     {
-        /** @var string $permalink */
-        $permalink = $this->params()->fromRoute('permalink');
-        return parent::indexAction();
+        return parent::indexAction()->setVariables([
+            'permalink' => $this->params()->fromRoute('permalink')
+        ]);
     }
-
 }

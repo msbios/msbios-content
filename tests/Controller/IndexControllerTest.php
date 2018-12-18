@@ -4,20 +4,22 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace MSBiosTest\Application\Controller;
+namespace MSBiosTest\Content\Controller;
 
-use MSBios\Application\Controller\IndexController;
+use MSBios\Content\Controller\IndexController;
+use Zend\Http\Request;
+use Zend\Http\Response;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
 /**
  * Class IndexControllerTest
- * @package MSBiosTest\Application\Controller
+ * @package MSBiosTest\Content\Controller
  */
 class IndexControllerTest extends AbstractHttpControllerTestCase
 {
     /**
-     * @return $this
+     * @return $this|void
      */
     public function setUp()
     {
@@ -39,38 +41,28 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
 
     /**
      * @return $this
+     * @throws \Exception
      */
     public function testIndexActionCanBeAccessed()
     {
-        $this->dispatch('/', 'GET');
-        $this->assertResponseStatusCode(200);
+        $this->dispatch('/some-link.html', Request::METHOD_GET);
+        $this->assertResponseStatusCode(Response::STATUS_CODE_200);
         $this->assertModuleName('MSBios');
         $this->assertControllerName(IndexController::class);
         $this->assertControllerClass('IndexController');
-        $this->assertMatchedRouteName('home');
+        $this->assertMatchedRouteName('home/static');
 
         return $this;
     }
 
     /**
      * @return $this
-     */
-    public function testIndexActionViewModelTemplateRenderedWithinLayout()
-    {
-        $this->dispatch('/', 'GET');
-        $this->assertQuery('.container .jumbotron');
-
-        return $this;
-    }
-
-    /**
-     * @return $this
+     * @throws \Exception
      */
     public function testInvalidRouteDoesNotCrash()
     {
-        $this->dispatch('/invalid/route', 'GET');
-        $this->assertResponseStatusCode(404);
-
+        $this->dispatch('/!!!!!.html', Request::METHOD_GET);
+        $this->assertResponseStatusCode(Response::STATUS_CODE_404);
         return $this;
     }
 }
