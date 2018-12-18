@@ -747,16 +747,16 @@
         },
         {
             "name": "msbios/msbios",
-            "version": "v1.0.10",
+            "version": "v1.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/msbios/msbios-msbios.git",
-                "reference": "3f64305b4a6afb41deb1dc010f3f2cf8d3976174"
+                "reference": "761280e3a4a776a0384cc52484ffa05d224c7c34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/msbios/msbios-msbios/zipball/3f64305b4a6afb41deb1dc010f3f2cf8d3976174",
-                "reference": "3f64305b4a6afb41deb1dc010f3f2cf8d3976174",
+                "url": "https://api.github.com/repos/msbios/msbios-msbios/zipball/761280e3a4a776a0384cc52484ffa05d224c7c34",
+                "reference": "761280e3a4a776a0384cc52484ffa05d224c7c34",
                 "shasum": ""
             },
             "require": {
@@ -792,7 +792,7 @@
             "keywords": [
                 "php"
             ],
-            "time": "2018-12-18T10:42:00+00:00"
+            "time": "2018-12-18T10:47:07+00:00"
         },
         {
             "name": "msbios/navigation",
