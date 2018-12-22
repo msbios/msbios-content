@@ -24,6 +24,7 @@
     }
   },
   "require": {
+    "msbios/content-resource": "^1.0"
   },
   "require-dev": {
     "msbios/application": "^1.0",
